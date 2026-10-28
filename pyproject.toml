@@ -1,0 +1,14 @@
+[project]
+name = "minimum-excluding-set-kit"
+version = "0.1.0"
+description = "Data structure for tracking the smallest missing non-negative integer in a dynamic set"
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
