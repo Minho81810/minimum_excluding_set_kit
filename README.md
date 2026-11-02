@@ -27,3 +27,10 @@ The trade-off is memory: the internal cache is bounded by `max_value`, and the e
 - Only **non-negative** integers are supported. Negative values raise `ValueError`; `bool` and `float` raise `TypeError` (booleans are not silently treated as ints).
 - `remove` raises `KeyError` on absent values; use `discard` if you want no-throw semantics.
 - The MEX is defined over `0, 1, 2, …`; if you need a different domain, translate before inserting.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
